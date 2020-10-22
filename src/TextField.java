@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 
 public class TextField extends JFrame implements ActionListener {
 
@@ -18,7 +19,6 @@ public class TextField extends JFrame implements ActionListener {
     JPanel questions = new JPanel();
     JPanel answers = new JPanel();
     JPanel resultat = new JPanel();
-
 
     TextField(){
         setLayout(new BorderLayout());
@@ -44,6 +44,11 @@ public class TextField extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        Scanner sc1 = new Scanner(milNow.getText());
+        Scanner sc2 = new Scanner(milThen.getText());
+        Scanner sc3 = new Scanner(usedGas.getText());
+        countedMileage.setText(String.valueOf(sc1.nextInt()-sc2.nextInt()));
+        gasoline.setText(usedGas.getText());
+        usagePerMil.setText(String.valueOf(sc3.nextDouble()/(sc1.nextInt()-sc2.nextInt())));
     }
 }
